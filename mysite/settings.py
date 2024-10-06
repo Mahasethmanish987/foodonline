@@ -15,7 +15,7 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(BASE_DIR)
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,7 @@ DATABASES = {
         'PORT': config('PORT'),       # default MySQL port
     }
 }
+AUTH_USER_MODEL='accounts.User'
 
 
 # Password validation
@@ -128,7 +130,18 @@ STATICFILES_DIRS=[
     BASE_DIR / 'myapp' / 'static',
 ]
 
+#Media file configuration
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR/'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.contrib.messages import constants as messages 
+MESSAGE_TAGS={
+    messages.ERROR:'danger',
+    
+}
