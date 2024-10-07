@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-    'accounts'
+    'accounts',
+    'vendor',
 ]
 
 MIDDLEWARE = [
@@ -143,5 +144,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 from django.contrib.messages import constants as messages 
 MESSAGE_TAGS={
     messages.ERROR:'danger',
-    
+
 }
